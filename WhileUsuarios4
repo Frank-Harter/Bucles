@@ -1,0 +1,20 @@
+#!/bin/bash
+
+#Obtener los nombres de usuario del sistema que contienen al menos una letra ma>
+usuarios_mayusculas=$(awk -F: 'tolower($1) != $1 {print $1}' /etc/passwd)
+
+#Mostrar los nombres de usuario con al menos una letra mayuscula
+echo "Usuarios del sistema con al menos una letra mayúscula:"
+echo "$usuarios_mayusculas"
+
+#Input de usuario
+read -p "Introduce un nombre de usuario: " usuario
+
+#Verificar si usuario existe
+while ! echo "$usuarios_mayusculas" | grep -qw "$usuario"; do
+    echo "No esta '$usuario'"
+    read -p "Introduce usuario: " usuario
+done
+#Mostrar toda la información
+echo "Información del usuario '$usuario':"
+grep "^$usuario:" /etc/passwd
