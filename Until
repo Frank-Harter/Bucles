@@ -1,0 +1,10 @@
+
+#!/bin/bash
+until [ "$#" -eq 3 ]; do
+    echo "Error: Se esperaban 3 argumentos."
+    echo "Vuelve a introducir los argumentos:"
+   exit 1
+done
+
+echo "Los 3 argumentos proporcionados son:"
+echo "Argumentos: $1 $2 $3"
