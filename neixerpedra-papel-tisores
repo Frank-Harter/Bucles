@@ -1,0 +1,26 @@
+
+#!/bin/bash
+op=("T" "R" "P")
+jugar="si"
+while [ "$jugar" != "no" ]; do
+maq=$(shuf -n 1 -e "${op[@]}")
+echo $maq
+read -p "Roca (R), Tijeras (T), Papel (P) " jug
+if [ "$maq" == "R" ] && [ "$jug" == "P" ]; then
+echo "GANA JUGADOR"
+elif [ "$maq" == "R" ] && [ "$jug" == "T" ]; then
+echo "GANA MAQUINA"
+elif [ "$maq" == "P" ] && [ "$jug" == "T" ]; then
+echo "GANA JUGADOR"
+elif [ "$maq" == "P" ] && [ "$jug" == "R" ]; then
+echo "GANA MAQUINA"
+elif [ "$maq" == "T" ] && [ "$jug" == "R" ]; then
+echo "GANA JUGADOR"
+elif [ "$maq" == "T" ] && [ "$jug" == "P" ]; then
+echo "GANA MAQUINA"
+else
+echo "EMAPTE"
+fi
+read -p "vols jugar? (no) " jugar
+
+done
