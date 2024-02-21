@@ -1,0 +1,16 @@
+
+#!/bin/bash
+read -p "Carpeta: " dir
+until [ -d $dir ]; do
+echo "$dir No es carpeta"
+read -p "Carpeta: " dir
+done
+echo "PERMISOS de $dir: $(ls -la $dir |cut -d" "  -f1 | head -n 2 |tail -n 1)"
+echo "Cantidad Carpetas: $(find $dir -type d |tail -n +2 |wc -l)"
+echo "Cantidad Files: $(find $dir -type f |wc -l)"
+echo ""
+echo "FILES:"
+echo "$(ls -p $dir |grep -v /)"
+echo ""
+echo "CARPETAS:"
+echo "$(ls -p $dir |grep /)"
