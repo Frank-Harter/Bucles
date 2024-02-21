@@ -1,0 +1,18 @@
+#!/bin/bash
+
+archivo=$1
+
+if [ ! -f "$archivo" ]; then
+    echo "El archivo $archivo no existe."
+    exit 1
+fi
+
+for linea in $(cat "$archivo"); do
+    # Comprobar si la línea comienza con el símbolo #
+    if [[ "$linea" == \#* ]]; then
+        echo "$linea"
+    fi
+done
+
+
+read -p "Frase que quieres que se introduzca: " frase
