@@ -1,0 +1,13 @@
+
+#!/bin/bash
+funca="no"
+while [ "$funca" == "no" ]; do
+if ping -c 1 ies-sabadell.cat &> /dev/null; then
+        # Abrimos el firefox
+        firefox "www.ies-sabadell.cat"
+        funca=si
+else
+        echo "Esperamos 5 segundos."
+        sleep 5
+        fi
+done
