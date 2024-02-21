@@ -1,0 +1,12 @@
+
+#!/bin/bash
+read -p "Cuantos numero?: " cadena
+contador=0
+for (( vuelta=0; vuelta<${#cadena}; vuelta++ )); do
+if [ "${cadena:vuelta:1}" -eq 0 ]; then
+contador=$(($contador+1))
+fi
+done
+echo $contador
+
+
