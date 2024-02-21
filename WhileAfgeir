@@ -1,0 +1,8 @@
+#!/bin/bash
+read input
+while [ "$input" != ":>" ]; do
+echo $input >> $1
+read input
+done
+
+
